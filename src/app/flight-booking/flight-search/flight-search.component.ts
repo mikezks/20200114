@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Flight } from '../entities/flight';
-import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
-import { FlightService } from './flight.service';
+import { Flight } from '../../entities/flight';
+import { FlightService } from '../services/flight.service';
 import { Observable, from, zip, interval } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
 
