@@ -12,5 +12,6 @@ import { DummyFlightService } from './dummy-flight.service';
   //useClass: DummyFlightService
 })
 export abstract class FlightService {
+  flights: Flight[];
   abstract find(from: string, to: string): Observable<Flight[]>;
 }

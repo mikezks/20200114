@@ -13,7 +13,9 @@ import { switchMap, map } from 'rxjs/operators';
 export class FlightSearchComponent implements OnInit, OnDestroy {
   from = 'Hamburg';
   to = 'Graz';
-  flights: Flight[] = [];
+  get flights() {
+    return this.flightService.flights;
+  }
   selectedFlight: Flight;
   flight$: Observable<Flight>;
 
@@ -41,7 +43,7 @@ export class FlightSearchComponent implements OnInit, OnDestroy {
     this.flightService
       .find(this.from, this.to)
       .subscribe(
-        flights => this.flights = flights,
+        undefined,
         err => console.error('Error on loading flights', err)
       );
   }
