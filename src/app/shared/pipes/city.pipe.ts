@@ -7,7 +7,7 @@ import { delay, startWith, map } from 'rxjs/operators';
 })
 export class CityPipe implements PipeTransform {
 
-  transform(value: string, fmt: string): Observable<string> {
+  transform(value: string, fmt: string): string /* Observable<string> */ {
 
     let short: string;
     let long: string;
@@ -30,7 +30,8 @@ export class CityPipe implements PipeTransform {
     }
 
     if (fmt === 'short') {
-      return merge(
+      return short;
+      /* return merge(
           of('Default')
             .pipe(
               map(val => ({
@@ -49,9 +50,9 @@ export class CityPipe implements PipeTransform {
       )
       .pipe(
         map(o => o.value)
-      );
+      ); */
     }
 
-    return of(long);
+    return long;
   }
 }
