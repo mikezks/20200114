@@ -64,8 +64,8 @@
     }}</pre>
   </div>
 
-  <div class="card">
+  <div class="card" *ngIf="flight$ | async as flight">
     <pre>{{
-        flight$ | async | json
+        flight | json
     }}</pre>
   </div>

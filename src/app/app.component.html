@@ -16,7 +16,12 @@
           <div class="content">
             </div>
         </div> -->
-        <app-flight-search></app-flight-search>
+      <button
+        class="btn btn-default toggle-btn"
+        (click)="toggleView = !toggleView">
+        {{ toggleView ? 'hide' : 'show' }}
+      </button>
+      <app-flight-search *ngIf="toggleView"></app-flight-search>
 
       </div>
   </div>

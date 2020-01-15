@@ -49,3 +49,7 @@
           -webkit-transform: scale(1.0);
       }
 }
+
+.toggle-btn {
+    margin-bottom: 16px
+}

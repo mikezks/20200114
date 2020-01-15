@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Flight } from '../entities/flight';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { FlightService } from './flight.service';
@@ -10,7 +10,7 @@ import { switchMap, map } from 'rxjs/operators';
   templateUrl: './flight-search.component.html',
   styleUrls: ['./flight-search.component.css']
 })
-export class FlightSearchComponent implements OnInit {
+export class FlightSearchComponent implements OnInit, OnDestroy {
   from = 'Hamburg';
   to = 'Graz';
   flights: Flight[] = [];
@@ -20,6 +20,9 @@ export class FlightSearchComponent implements OnInit {
   constructor(private flightService: FlightService) { }
 
   ngOnInit(): void {
+    // tslint:disable-next-line:no-console
+    console.debug('FlightSearchComponent created');
+
     this.flight$ =
       this.flightService
         .find(this.from, this.to)
@@ -45,5 +48,10 @@ export class FlightSearchComponent implements OnInit {
 
   select(f: Flight): void {
     this.selectedFlight = f;
+  }
+
+  ngOnDestroy(): void {
+    // tslint:disable-next-line:no-console
+    console.debug('FlightSearchComponent destroyed');
   }
 }
