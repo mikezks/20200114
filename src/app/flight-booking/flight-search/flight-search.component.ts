@@ -22,8 +22,8 @@ export class FlightSearchComponent implements OnInit, OnDestroy {
     "3": true,
     "5": true
   };
-  timer$: Observable<number>;
-  timerSubscription: Subscription;
+  /* timer$: Observable<number>;
+  timerSubscription: Subscription; */
 
   constructor(private flightService: FlightService) { 
 
@@ -44,7 +44,7 @@ export class FlightSearchComponent implements OnInit, OnDestroy {
     // tslint:disable-next-line:no-console
     console.debug('FlightSearchComponent created');
 
-    this.flight$ =
+    /* this.flight$ =
       this.flightService
         .find(this.from, this.to)
         .pipe(
@@ -64,7 +64,7 @@ export class FlightSearchComponent implements OnInit, OnDestroy {
           tap(console.log)
         );
 
-    this.timerSubscription = this.timer$.subscribe(console.log);
+    this.timerSubscription = this.timer$.subscribe(console.log); */
   }
 
   search(): void {
@@ -80,6 +80,7 @@ export class FlightSearchComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     // tslint:disable-next-line:no-console
     console.debug('FlightSearchComponent destroyed');
-    this.timerSubscription.unsubscribe();
-this.timer$  }
+    /* this.timerSubscription.unsubscribe();
+    this.timer$ */
+  }
 }
