@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { of, Observable } from 'rxjs';
 import { Flight } from '../../entities/flight';
+import { FlightService } from './flight.service';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DummyFlightService {
+export class DummyFlightService implements FlightService {
+  flights: Flight[] = [];
 
   constructor() { }
 
@@ -18,6 +21,9 @@ export class DummyFlightService {
         date: (new Date()).toISOString(),
         delayed: false
       }
-    ]);
+    ])
+      .pipe(
+        tap(flights => this.flights = flights)
+      );
   }
 }
