@@ -1,0 +1,32 @@
+<form [formGroup]="fGroup">
+    <div class="form-group">
+        <label>Id:</label>
+        <input formControlName="id" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label>From:</label>
+        <input formControlName="from" class="form-control">
+        <pre *ngIf="fGroup.controls['from'].invalid">Input is not correct.</pre>
+        <pre *ngIf="fGroup.controls['from'].hasError('city')">City name is not white-listed!</pre>
+    </div>
+
+    <div class="form-group">
+        <label>To:</label>
+        <input formControlName="to" class="form-control">
+        <pre *ngIf="fGroup.controls['to'].invalid">Input is not correct.</pre>
+    <pre *ngIf="fGroup.controls['to'].hasError('city')">City name is not white-listed! {{
+        fGroup.controls['to'].errors.city.validCities | json
+    }}</pre>
+    </div>
+
+    <div class="form-group">
+        <label>Date:</label>
+        <input formControlName="date" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <button (click)="save()" class="btn btn-default">Save</button>
+    </div>
+
+</form>

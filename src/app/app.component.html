@@ -21,8 +21,8 @@
         (click)="toggleView = !toggleView">
         {{ toggleView ? 'hide' : 'show' }}
       </button>
-      <app-flight-search *ngIf="toggleView"></app-flight-search>
-
+      <!-- <app-flight-search *ngIf="toggleView"></app-flight-search> -->
+      <app-flight-edit *ngIf="toggleView"></app-flight-edit> 
       </div>
   </div>
 
